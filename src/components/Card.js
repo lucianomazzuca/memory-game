@@ -15,7 +15,6 @@ function Card(props) {
 
             <div className="card-info">
                 <span>{caracter.name}</span>
-                <h3>{status()}</h3>
             </div>
         </div>
     )

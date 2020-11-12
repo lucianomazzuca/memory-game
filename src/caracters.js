@@ -3,7 +3,7 @@ const data = [
         id: 1,
         name: 'Iron Man',
         image: 'https://media.metrolatam.com/2020/07/15/template16-c26928ed62bb7f591987e432b87c5798-1200x800.jpg',
-        clicked: true,
+        clicked: false,
     },
     {
         id: 2,

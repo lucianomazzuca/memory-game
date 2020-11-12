@@ -30,6 +30,15 @@ function App() {
     setScore(0);
   }
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array
+  }
+
   const handleClick = (caracterClicked, e) => {
     if(caracterClicked.clicked === false) {
 
@@ -50,8 +59,13 @@ function App() {
     }
   }
 
+  //Shuffle effect
+  useEffect(() => {
+    setCaracters(shuffleArray(caracters))
 
-  const cards = caracters.map(caracter => {
+  }, [score, caracters])
+
+  let cards = caracters.map(caracter => {
     return <Card key={caracter.id} id={caracter.id} caracter={caracter} handleClick ={handleClick} />
   })
 
