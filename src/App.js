@@ -9,8 +9,6 @@ function App() {
   const [score, setScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
   const [caracters, setCaracters] = useState(data)
-
-  //Effects
   
   //Methods
   function resetGame() {
@@ -39,6 +37,7 @@ function App() {
     return array
   }
 
+  //Handlers
   const handleClick = (caracterClicked, e) => {
     if(caracterClicked.clicked === false) {
 
@@ -62,7 +61,6 @@ function App() {
   //Shuffle effect
   useEffect(() => {
     setCaracters(shuffleArray(caracters))
-
   }, [score, caracters])
 
   let cards = caracters.map(caracter => {
