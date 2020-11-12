@@ -13,13 +13,46 @@ function App() {
   //Effects
   
   //Methods
-  const handleClick = (e) => {
-    console.log(e)
+  function resetGame() {
+    //Reset caracter
+    const caractersUpdated = caracters.map(caracter => {
+      caracter.clicked = false;
+      return caracter;
+    });
+    setCaracters(caractersUpdated);
+
+    //Check best score
+    if(score > bestScore){
+      setBestScore(score);
+    }
+
+    //Reset score
+    setScore(0);
+  }
+
+  const handleClick = (caracterClicked, e) => {
+    if(caracterClicked.clicked === false) {
+
+      //Change clicked status on this caracter
+      const caractersUpdated = caracters.map(caracter => {
+        if(caracter.id === caracterClicked.id) {
+          caracter.clicked = true;
+        }
+        return caracter
+      });
+
+      setCaracters(caractersUpdated)
+      setScore(prevState => prevState + 1)
+
+    } else {
+      //Reset 
+      resetGame()
+    }
   }
 
 
   const cards = caracters.map(caracter => {
-    return <Card key={caracter.id} caracter={caracter} handleClick ={handleClick} />
+    return <Card key={caracter.id} id={caracter.id} caracter={caracter} handleClick ={handleClick} />
   })
 
   return (

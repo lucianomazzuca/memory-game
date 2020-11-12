@@ -9,9 +9,9 @@ function Card(props) {
     }
 
     return (
-        <div className='card' onClick={(e) => props.handleClick(e)}>
+        <div className='card' onClick={(e) => props.handleClick(props.caracter, e)}>
 
-            <img src={caracter.image} alt="" srcset=""/>
+            <img src={caracter.image} alt="" />
 
             <div className="card-info">
                 <span>{caracter.name}</span>
